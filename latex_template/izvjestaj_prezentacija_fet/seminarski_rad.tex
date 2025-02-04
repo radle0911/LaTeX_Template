@@ -1,0 +1,351 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[left=20mm, bottom=20mm, right=20mm, top=25mm]{geometry}
+\usepackage{color}
+\usepackage{soul}
+\usepackage[T1]{fontenc}
+\usepackage{colortbl}
+\usepackage{fancyhdr}
+\usepackage{caption}
+\usepackage{mwe}
+\usepackage{listings}
+\usepackage{pgf,tikz}%%%%%%%%%%%%
+\usepackage{float}
+\usepackage{pgfplots}
+\usetikzlibrary{intersections}
+\usetikzlibrary{arrows.meta}
+\usepackage{mathtools}
+\usepackage{fix-cm}
+\usepackage{multirow}%
+\usepackage{pgfplots}%
+\usepackage[english]{babel}
+\usepackage[shadow,color=mc1,linecolor=mc4,bordercolor=mc4,textwidth=23mm]{todonotes}
+\usepackage{amsmath}
+
+\usepackage{algorithm}  % Za prikaz algoritma
+\usepackage{algpseudocode}  % Za algoritamske pseudokode
+
+\usepackage{circuitikz}
+\usetikzlibrary{circuits.logic.US}
+\usetikzlibrary{arrows, shapes.gates.logic.US}
+\usepackage{caption}
+\usepackage{tikz}
+\usetikzlibrary{shadows}
+\usepackage{pgfplots}
+\usepackage{sidecap}
+\usepackage{verbatim}
+
+
+\usepackage{graphicx}
+\usepackage{eso-pic}
+\usepackage{lipsum}  % Dodano za primjer teksta
+
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\usepackage{embedfile}
+\usepackage{hyperref}
+
+\usepackage{enumitem}
+
+\newcounter{logo_stil}
+\definecolor{boja}{RGB}{15,123,142}
+
+\newcommand{\dispenvname}[1]
+{\texttt{\color{blue}#1\color{black}}~}
+
+\newcommand{\nazivslike}[1]
+{
+\vspace{2mm}
+\small\stepcounter{logo_stil}\hyperterget{sl;\arabic{logo_stil}}{slika}\arabic{logo_stil}.#1
+\addcontentsline{lof}{figure}{\arabic{logo_stil}\hspace{4mm}#1}
+
+\vspace{2mm}
+}
+
+\setlength{\headheight}{25pt}
+
+\fancypagestyle{tptp_stil}
+{
+\lhead{\small\sc{Aljic Eldar}}\chead{}\rhead{\includegraphics[scale=0.05, trim=0.25mm 0.25mm 0.25mm 0.25mm,clip=true]{img/logo.pdf}}
+\lfoot{}\cfoot{}\rfoot{\thepage}
+\renewcommand{\headrulewidth}{0.35pt}
+\renewcommand{\footrulewidth}{0pt}
+}
+
+%\pagestyle%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hypersetup{
+colorlinks,
+citecolor=black,
+filecolor=black,
+linkcolor=black,
+urlcolor=boja,
+}
+
+\definecolor{mycolor}{RGB}{15,123,142}
+\definecolor{mc1}{RGB}{245,204,204}
+\definecolor{mc2}{RGB}{48,134,109}
+\definecolor{mc3}{RGB}{224,234,241}
+\definecolor{mc4}{RGB}{197,66,67}
+\definecolor{zelena}{RGB}{0,153,0}
+
+\newcommand{\newsize}[1]{\fontsize{9pt}{21pt}\selectfont{#1}}
+\newcommand{\newtodo}[1]{\todo{\newsize{#1}}}
+
+
+\lstset{
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{red},
+    breaklines=true,
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    tabsize=2,
+    captionpos=b
+}
+
+
+
+\newcommand{\siva}{\rowcolor{red!20!black!10}}  %za farbanje polja sa kombinacijom boja: 20%crvene 10%crne
+\newcommand{\tamsiva}{\rowcolor{black!70}}% 70% crne boje
+
+\newcolumntype{L}[1]{>{\centering\arraybackslash}m{#1}}%za 1. tabelu
+
+\newcounter{rbslika}
+
+\newcommand{\brojslike}[1]
+{
+  \vspace{2mm}
+  \small\stepcounter{rbslika}\hypertarget{sl:\arabic{rbslika}}{Slika} \arabic{rbslika}. #1
+  \addcontentsline{lof}{figure}{\arabic{rbslika} \hspace{4mm} #1}
+  
+  \vspace{2mm}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcounter{rbtabela}  
+\newcommand{\evosok}[1]  
+{  
+\vspace{2mm}  
+\small\stepcounter{rbtabela}\hypertarget{sl:\arabic{rbtabela}}{Tabelica} \arabic{rbtabela}. #1  
+\addcontentsline{lot}{table}{\arabic{rbtabela} \hspace{4mm} #1}  
+\vspace{2mm}  
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\begin{document}
+
+				% Dodjeljujemo odredjene nazive komandama
+\renewcommand{\figurename}{Slika}
+\renewcommand{\arraystretch}{1.4}
+\renewcommand{\contentsname}{Sadrzaj}
+\renewcommand{\listfigurename}{Lista slika}
+\renewcommand{\listtablename}{Lista tabela}
+\renewcommand{\abstractname}{Sazetak ili abstract}
+
+
+
+\noindent Univerzitet u Tuzli \hfill  Tuzla, juni 2024. \\
+\noindent Fakultet elektrotehnike \hfill Satelitske telekomunikacije \\
+\noindent \hfill  \\
+
+% postavljanje wtermark slike 
+\AddToShipoutPictureBG*{
+	\AtPageCenter{
+		\hspace{-60mm}
+		\begin{tikzpicture}[remember picture,overlay,opacity=0.07]
+			\node at (current page.center) {\includegraphics[width=0.5\paperwidth, angle=0]{img/logo.pdf}};
+		\end{tikzpicture}
+	}
+}
+
+
+
+\begin{center}
+
+\vspace{60mm}
+
+\LARGE{}\textbf{Izvjestaj} \\
+\vspace{5mm}
+People Counting with Python
+\end{center} 
+\vspace{5mm}
+
+\vfill{
+	\noindent \textbf{Studenti:} \\ % \hfill Profesor:  \\
+	\noindent Eldar Aljic  \\
+	\noindent Benjamin Hodzic   \\ 
+	\noindent Dzana Dugonjic \hfill \textbf{ Predemtni nastavnik } \\ 
+	\noindent Osman Azabagic  \hfill Dr.sc. Alma Šećerbegović, docent}
+\vspace{10mm}
+
+
+
+\newpage
+
+\begin{abstract}
+
+\noindent Pisemo sazetak tj. abstract da vidimo da li ce mi se ova promjena desiti \\
+\noindent ovo je neka nova promjena  \\
+\noindent pa sada kao bude upade 
+
+\end{abstract}
+
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\listoffigures
+%\listoftables
+
+
+
+
+
+\newpage
+\pagestyle{tptp_stil}
+
+\section{Uvod}
+\noindent Pisemo ovod za ovaj izvjestaj ili sta god da pravim
+
+
+\section{Definicija problema}
+\noindent Ovako pravimo drugu sekciju 
+
+
+\begin{enumerate}
+    \item \textbf{Ovo je sa: } brojevima 
+    
+    \item \textbf{bla bla} 
+\end{enumerate}
+
+    	\begin{itemize}
+    		\item  ovo je sa tackama
+		\end{itemize}
+		
+
+\begin{itemize}
+
+
+    \itemsep0em % Ovo redukuje razmak između stavki u listi
+    \item prvi dio:
+    
+		\begin{itemize}
+    		\item linija unutar prva 
+
+		\end{itemize}    
+    
+    	
+    \item drugi dio:
+    
+		\begin{itemize}
+    		\item Ako
+		\end{itemize}      
+    
+    
+
+\end{itemize}
+
+
+
+
+
+\subsection{Na ovaj nacin pravimo subsection }
+
+
+
+% Da se zakomentarise selektovani kod ctrl + T, a otkomentarise ctrl + U 
+
+% Sliku ubacujemo na sljedeci nacin : 
+
+%%\vspace{5mm}
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=0.7\linewidth]{img/stk_1b.png}
+%	\caption{MobileNet SSD kod 1b}
+%	\label{fig:stk_1b}
+%\end{figure}
+%\vspace{5mm}
+
+
+\subsubsection{Na ovaj nacin pravimo subsubsection}
+
+
+
+
+
+
+
+
+\pagestyle{tptp_stil}
+\newpage
+
+
+
+
+
+
+
+
+
+
+% takodjer lijep nacin zapisivanja nista vise :)
+\begin{verbatim}
+frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
+cv2.imshow("Frame", frame)
+key = cv2.waitKey(1) & 0xFF
+\end{verbatim}
+
+
+
+
+% na ovaj nacin mozemo da zapisemo neki kod ovo je kao python kod mozes 
+% podesiti koji kod zelis da bude kao obojene komande
+\begin{lstlisting}[language=Python, caption=Primjer Python koda]
+fps.stop()
+print("[INFO] elapsed time: {:.2f}".format(fps.elapsed()))
+print("[INFO] approx. FPS: {:.2f}".format(fps.fps()))
+
+if writer is not None:
+    writer.release()
+
+if not args.get("input", False):
+    vs.stop()
+else:
+    vs.release()
+
+cv2.destroyAllWindows()
+
+d = [datetime.datetime.now()]
+dts = [ts.strftime("%A %d %B %Y %I:%M:%S%p") for ts in d]
+export_data = zip_longest(*[dts, empty, empty1], fillvalue='')
+
+with open('Log.csv', 'w', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerow(("End Time", "In", "Out"))
+    writer.writerows(export_data)
+
+\end{lstlisting}
+
+
+
+
+ \end{document}
